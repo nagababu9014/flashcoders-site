@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Notes | Flash Coders</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+:root{
+  --bg:#020617;
+  --card:#0f172a;
+  --border:#1e293b;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#38bdf8;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#020617;
+  color:var(--text);
+  line-height:1.6;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(2,6,23,0.95);
+  border-bottom:1px solid var(--border);
+  padding:12px 14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+header a{
+  color:#fff;
+  font-size:18px;
+  text-decoration:none;
+}
+
+header h1{
+  font-size:16px;
+  font-weight:700;
+}
+
+/* HERO */
+.hero{
+  padding:32px 14px 20px;
+  text-align:center;
+}
+
+.hero h2{
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:6px;
+  background:linear-gradient(90deg,#38bdf8,#22c55e);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* SECTION */
+.section{
+  padding:18px 12px 40px;
+}
+
+/* GRID – FORCE MOBILE FIRST */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+/* CARD */
+.card{
+  background:#020617;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+}
+
+.card h3{
+  font-size:15px;
+  margin-bottom:6px;
+}
+
+.card p{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:12px;
+}
+
+/* BUTTON */
+.card a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  padding:10px 0;
+  border-radius:10px;
+  background:#0f172a;
+  border:1px solid var(--border);
+  color:var(--accent);
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  text-align:center;
+  padding:18px 12px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* TABLETS & DESKTOP */
+@media(min-width:768px){
+  header{
+    padding:16px 20px;
+  }
+
+  header h1{
+    font-size:18px;
+  }
+
+  .hero{
+    padding:50px 20px 30px;
+  }
+
+  .hero h2{
+    font-size:30px;
+  }
+
+  .section{
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px 60px;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+}
+
+@media(min-width:1024px){
+  .grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+    <h1>Python Notes</h1>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Python Programming Notes</h2>
+    <p>Simple, clear & interview-oriented notes by Flash Coders</p>
+  </section>
+<!-- NOTES -->
+<section class="section">
+  <div class="grid">
+
+    <div class="card">
+      <h3> Notes From Day1 To Day 8</h3>
+      <p>This PDF contains complete notes for Day 0 to Day 8, covering Python basics, variables, data types, input, operators, conditions, and loops — all explained in one place.</p>
+      <a href="https://drive.google.com/file/d/190T_h8uESDxXDgLVBK2ly9ulspbcMGnZ/view?usp=sharing" target="_blank">
+        <i class="fa-solid fa-file-pdf"></i> Open Drive Link
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Day 9</h3>
+    <P>While Loop</P>
+      <a href="https://drive.google.com/file/d/1ZLoKjox_ZkTLwXzOHTuWLH27ddkSKWvJ/view?usp=sharing" target="_blank">
+        <i class="fa-solid fa-file-pdf"></i> Open Drive Link
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Day 10</h3>
+      <p>Break Statement</p>
+      <a href="https://drive.google.com/file/d/1PRh8ST1W6EUvmPaWZn63TIkIY04XFtfX/view?usp=sharing" target="_blank">
+        <i class="fa-solid fa-file-pdf"></i> Open Drive Link
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Day 11</h3>
+      <p> Continue Statement</p>
+      <a href="https://drive.google.com/file/d/19FK5xliJrdjmJ3N9c4hoFHLMU4ONns94/view?usp=sharing" target="_blank">
+        <i class="fa-solid fa-file-pdf"></i> Open Drive Link
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Day 12</h3>
+      <p>Strings</p>
+      <a href="https://drive.google.com/file/d/1oJumd8fNzPgceKwSRo-HVHBkZSvSvEKJ/view?usp=sharing" target="_blank">
+        <i class="fa-solid fa-file-pdf"></i> Open Drive Link
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Day 13 14 15</h3>
+      <p>Lists</p>
+      <a href="https://drive.google.com/file/d/1BJWK5fps-iBXKYp67F1FmS2__8rjyNtz/view?usp=sharing" target="_blank">
+        <i class="fa-solid fa-file-pdf"></i> Open Drive Link
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Flash Coders • Python Made Simple
+  </footer>
+
+</body>
+</html>

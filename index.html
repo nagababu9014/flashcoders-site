@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flash Coders | Notes & Resources</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="icon" type="image/jpeg" href="images/logo.jpeg">
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#111827;
+      --border:#1f2937;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --accent:#38bdf8;
+      --accent2:#22c55e;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
+    }
+
+    body{
+      background:linear-gradient(180deg,#020617,#0f172a);
+      color:var(--text);
+    }
+
+    /* NAVBAR */
+    .navbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(2,6,23,0.85);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+      padding:16px 28px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:22px;
+      font-weight:800;
+      letter-spacing:0.5px;
+      color:#fff;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      margin-left:22px;
+      text-decoration:none;
+      font-weight:500;
+      transition:.3s;
+    }
+
+    .nav-links a:hover{
+      color:var(--accent);
+    }
+
+    /* HERO */
+    .hero{
+      padding:80px 20px 60px;
+      text-align:center;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .hero h1{
+      font-size:40px;
+      font-weight:800;
+      margin-bottom:14px;
+      background:linear-gradient(90deg,#38bdf8,#22c55e);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:16px;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .hero-buttons{
+      margin-top:28px;
+      display:flex;
+      gap:16px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:12px 22px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:var(--card);
+      color:#fff;
+      font-weight:600;
+      text-decoration:none;
+      transition:.3s;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg,#38bdf8,#22c55e);
+      border:none;
+      color:#020617;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    /* SECTION */
+    .section{
+      max-width:1200px;
+      margin:auto;
+      padding:60px 20px;
+    }
+
+    .section h2{
+      font-size:26px;
+      margin-bottom:28px;
+      text-align:center;
+    }
+
+    /* GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:22px;
+    }
+
+    .card{
+      background:linear-gradient(180deg,#020617,#020617);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:22px;
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:var(--accent);
+    }
+
+    .card h3{
+      font-size:18px;
+      margin-bottom:10px;
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:16px;
+    }
+
+    .card a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      font-weight:600;
+      color:var(--accent);
+    }
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid var(--border);
+      padding:30px 20px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .socials{
+      margin-top:14px;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+    }
+
+    .socials a{
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      transition:.3s;
+      text-decoration:none;
+    }
+
+    .socials a:hover{
+      background:var(--accent);
+      color:#020617;
+    }
+
+    @media(max-width:600px){
+      .hero h1{font-size:30px;}
+    }
+    /* ===========================
+   MOBILE RESPONSIVE STYLES
+   =========================== */
+
+/* NAVBAR MOBILE */
+.menu-toggle{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+  color:#fff;
+}
+
+@media (max-width: 768px){
+  .navbar{
+    padding:14px 18px;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:64px;
+    left:0;
+    width:100%;
+    background:rgba(2,6,23,0.98);
+    border-top:1px solid var(--border);
+    display:none;
+    flex-direction:column;
+    padding:18px 0;
+  }
+
+  .nav-links a{
+    margin:12px 0;
+    text-align:center;
+    font-size:16px;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+}
+
+/* HERO MOBILE */
+@media (max-width: 600px){
+  .hero{
+    padding:60px 16px 40px;
+  }
+
+  .hero h1{
+    font-size:28px;
+    line-height:1.2;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .hero-buttons{
+    gap:12px;
+  }
+
+  .btn{
+    width:100%;
+    text-align:center;
+  }
+}
+
+/* SECTIONS */
+@media (max-width: 600px){
+  .section{
+    padding:40px 16px;
+  }
+
+  .section h2{
+    font-size:22px;
+  }
+}
+
+/* GRID & CARDS */
+@media (max-width: 480px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:20px;
+  }
+
+  .card h3{
+    font-size:17px;
+  }
+
+  .card p{
+    font-size:13px;
+  }
+}
+
+/* FOOTER */
+@media (max-width: 480px){
+  footer{
+    font-size:13px;
+  }
+
+  .socials{
+    gap:14px;
+  }
+
+  .socials a{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+  }
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  font-size:18px;
+  color:#fff;
+}
+
+.logo img{
+  height:34px;
+  width:auto;
+  object-fit:contain;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+<nav class="navbar">
+ <div class="logo">
+  <img src="images/logo.jpeg" alt="Flash Coders Logo">
+  <span>Flash Coders</span>
+</div>
+
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    ☰
+  </div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#notes" onclick="closeMenu()">Notes</a>
+    <a href="#links" onclick="closeMenu()">Links</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </div>
+</nav>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Programming Notes & Resources By Nagababu Balla </h1>
+    <p>
+      Clean, concise notes for Python, DSA, Web Development & Interviews —  
+      curated by Flash Coders.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#notes" class="btn primary">View Notes</a>
+      <a href="#links" class="btn">Important Links</a>
+    </div>
+  </section>
+
+  <!-- NOTES -->
+  <section class="section" id="notes">
+    <h2>📘 Notes (Google Drive)</h2>
+
+        <div class="grid">
+        <div class="card">
+            <h3>Python Series</h3>
+            <p>Variables, loops, lists, strings, functions.</p>
+            <a href="python-notes.html">
+            <i class="fa-solid fa-file-pdf"></i> Open Notes
+            </a>
+        </div>
+        </div>
+
+<div class="card">
+  <h3>Aptitude Resource</h3>
+  <p>Complete Aptitude resources to Crack IT and Non-IT companies Interview Rounds</p>
+  <a href="https://drive.google.com/file/d/1D3bPsTtKGHasblQxtph05qDx5CVxbWrO/view?usp=sharing" target="_blank">
+    <i class="fa-solid fa-file-pdf"></i> Open Notes
+  </a>
+</div>
+
+<div class="card">
+  <h3>100 Coding Questions for Practice</h3>
+  <p>Top 100 coding questions</p>
+  <a href="https://drive.google.com/file/d/1iDb_pkYvrysVhJqaFMMyKJmdJDYANPMB/view?usp=sharing" target="_blank">
+    <i class="fa-solid fa-file-pdf"></i> Open Notes
+  </a>
+</div>
+
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section class="section" id="links">
+    <h2>🔗 Important Links</h2>
+
+    <div class="grid">
+
+
+<div class="card">
+  <h3>WhatsApp Channel</h3>
+  <p>Notes updates & doubt discussions.</p>
+  <a href="https://chat.whatsapp.com/GqJAW68ZxOu8QxnQfs9WKy" target="_blank" rel="noopener">
+    <i class="fa-brands fa-whatsapp"></i> Join Now
+  </a>
+</div>
+
+<div class="card">
+  <h3>Instagram Page</h3>
+  <p>Daily coding tips & reels.</p>
+  <a href="https://www.instagram.com/flashcoders_?igsh=aGQxZWJ3OG1taTR5" target="_blank" rel="noopener">
+    <i class="fa-brands fa-instagram"></i> Follow
+  </a>
+</div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    © 2026 Flash Coders • Learn. Code. Grow.
+    <div class="socials">
+      <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-telegram"></i></a>
+    </div>
+  </footer>
+<script>
+  function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+  }
+</script>
+<script>
+  const navLinks = document.getElementById("navLinks");
+
+  function toggleMenu() {
+    navLinks.classList.toggle("active");
+  }
+
+  function closeMenu() {
+    navLinks.classList.remove("active");
+  }
+
+  // Close menu when clicking outside
+  document.addEventListener("click", function (e) {
+    const menuToggle = document.querySelector(".menu-toggle");
+
+    if (
+      navLinks.classList.contains("active") &&
+      !navLinks.contains(e.target) &&
+      !menuToggle.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+</script>
+
+</body>
+</html>
